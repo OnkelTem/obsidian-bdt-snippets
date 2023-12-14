@@ -1,0 +1,25 @@
+.publish-renderer,
+.markdown-source-view,
+.markdown-preview-view {
+  --h-font: var(--font-text);
+
+  font-weight: var(--bdt-font-weight);
+  letter-spacing: var(--bdt-letter-spacing);
+
+  @for $i from 1 through 6 {
+    --h#{$i}-font: var(--h-font);
+  }
+
+  @for $i from 1 through 6 {
+    --h#{$i}-weight: var(--h-weight);
+  }
+
+  @for $i from 1 through 6 {
+    .h#{$i},
+    .HyperMD-header-#{$i},
+    .inline-title[data-level="#{$i}"],
+    .HyperMD-list-line .cm-header-#{$i} {
+      letter-spacing: var(--bdt-letter-spacing);
+    }
+  }
+}

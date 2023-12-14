@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wdth,wght@75..125,200..1000");
+
+.publish-renderer,
+.markdown-source-view,
+.markdown-preview-view {
+  --font-text: 'Nunito Sans';
+  --bdt-font-weight: 250;
+  --bdt-letter-spacing: 0.03em;
+  --h-weight: 640;
+  --bold-weight: 600;
+  --italic-weight: 500;
+
+  font-variation-settings: "wdth" 103;
+}
+
+@import "./_text.scss";
+

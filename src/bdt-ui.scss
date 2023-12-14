@@ -1,0 +1,31 @@
+//body {
+//  --color-base-00: #18202a;
+//  --background-primary: #18202a;
+//}
+
+.publish-renderer,
+.markdown-source-view,
+.markdown-reading-view {
+  // Better lists
+  --list-bullet-size: 1px;
+  --list-bullet-transform: translateY(0px) scale(6, 2);
+  --list-bullet-radius: 0;
+
+  // Mark active block
+  .cm-line.cm-active {
+    &:before {
+      content: "↤";
+      color: color-mix(in srgb, var(--text-normal), black 50%);
+      width: 20px;
+      position: absolute;
+      right: -40px;
+      text-indent: 0;
+    }
+  }
+
+  // Code blocks and inline code
+  --code-radius: 6px;
+  --code-background: color-mix(in srgb, var(--background-primary), white 8%);
+
+}
+
