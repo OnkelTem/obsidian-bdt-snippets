@@ -85,7 +85,7 @@ Download zip-archive:
 
 - [`obsidian-bdt-snippets.zip`](https://github.com/OnkelTem/obsidian-bdt-snippets/releases/latest/download/obsidian-bdt-snippets.zip)
 
-and extra it into `<your-vault>/.obisidan/snippets/` directory.
+and extract it into `<your-vault>/.obisidan/snippets/` directory.
 
 ## Usage
 
