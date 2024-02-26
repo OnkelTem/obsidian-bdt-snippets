@@ -7,9 +7,13 @@
 .markdown-source-view,
 .markdown-reading-view {
   // Better lists
-  --list-bullet-size: 1px;
+  --list-bullet-size: 0.05em;
   --list-bullet-transform: translateY(0px) scale(6, 2);
   --list-bullet-radius: 0;
+
+  .list-bullet {
+    left: -0.2em;
+  }
 
   // Mark active block
   .cm-line.cm-active {
@@ -24,8 +28,7 @@
   }
 
   // Code blocks and inline code
-  --code-radius: 6px;
+  --code-radius: 0.4em;
   --code-background: color-mix(in srgb, var(--background-primary), white 8%);
-
 }
 

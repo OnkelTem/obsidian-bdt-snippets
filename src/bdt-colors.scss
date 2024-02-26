@@ -17,6 +17,15 @@
         color: color-mix(in srgb, #{nth($colors, $i)}, #999 40%);
       }
     }
+
+    $sel: '';
+    @for $i from 1 through 7 {
+      $sel: if($i == 1, "ul>li", selector-nest($sel, ">ul>li"));
+
+      #{$sel} {
+        color: color-mix(in srgb, #{nth($colors, $i)}, #999 40%);
+      }
+    }
   }
 }
 
