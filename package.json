@@ -1,6 +1,6 @@
 {
   "name": "obsidian-bdt-snippets",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Obsidian Better Dark Theme snippets",
   "main": "index.js",
   "scripts": {
