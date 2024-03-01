@@ -1,0 +1,27 @@
+body {
+  --bdt-scales-p-spacing: 1rem;
+  --bdt-scales-list-spacing: 0.3rem;
+  --bdt-scales-line-height: 1.5;
+  --bdt-scales-h-size-scale-factor: 1.1;
+  --bdt-scales-h-line-height-scale-factor: 1;
+}
+
+body {
+  --p-spacing: var(--bdt-scales-p-spacing);
+  --list-spacing: var(--bdt-scales-list-spacing);
+  --line-height-normal: var(--bdt-scales-line-height);
+
+  @for $i from 1 through 6 {
+    --h#{$i}-size: calc(
+      1em * pow(var(--bdt-scales-h-size-scale-factor), #{7-$i})
+    );
+  }
+
+  @for $i from 1 through 6 {
+    --h#{$i}-line-height: calc(
+      pow(var(--bdt-scales-h-line-height-scale-factor), #{7-$i})
+    );
+  }
+}
+
+@import "_scales.yaml";

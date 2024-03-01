@@ -1,0 +1,34 @@
+id: bdt-colors
+name: "BDT Colors"
+settings:
+  - title: "Dark theme"
+    type: heading
+    level: 1
+
+  - id: bdt-colors-headers-dark
+    title: "Headers coloring"
+    description: Enable headers coloring
+    type: class-toggle
+    default: true
+
+  - id: bdt-colors-lists-dark
+    title: "Lists coloring"
+    description: Enable lists coloring
+    type: class-toggle
+    default: true
+
+  - title: "Light theme"
+    type: heading
+    level: 1
+
+  - id: bdt-colors-headers-light
+    title: "Headers coloring"
+    description: Enable headers coloring
+    type: class-toggle
+    default: true
+
+  - id: bdt-colors-lists-light
+    title: "Lists coloring"
+    description: Enable lists coloring
+    type: class-toggle
+    default: true

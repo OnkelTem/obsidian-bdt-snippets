@@ -1,0 +1,50 @@
+id: bdt-scales
+name: "BDT Scales"
+settings:
+  - title: "Headers"
+    type: heading
+    level: 1
+
+  - id: bdt-scales-h-size-scale-factor
+    title: "H-s font size scale factor"
+    type: variable-number-slider
+    min: 1
+    max: 1.2
+    step: 0.01
+    default: 1.1
+
+  - id: bdt-scales-h-line-height-scale-factor
+    title: "H-s line height scale factor"
+    type: variable-number-slider
+    min: 1
+    max: 1.2
+    step: 0.01
+    default: 1
+
+  - title: "Text"
+    type: heading
+    level: 1
+
+  - id: bdt-scales-p-spacing
+    title: "Paragraph spacing (rem)"
+    description: "Note: reading mode only"
+    type: variable-number-slider
+    min: 0
+    max: 3
+    step: 0.1
+    default: 1
+    format: rem
+
+  - title: "Lists"
+    type: heading
+    collapsed: false
+    level: 1
+
+  - id: bdt-scales-list-spacing
+    title: "List spacing (em)"
+    type: variable-number-slider
+    min: 0
+    max: 2
+    step: 0.01
+    default: 0.3
+    format: em

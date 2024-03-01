@@ -1,11 +1,11 @@
 {
   "name": "obsidian-bdt-snippets",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "description": "Obsidian Better Dark Theme snippets",
   "main": "index.js",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "sass --no-source-map src:dist",
+    "build": "node scripts/build.js src dist",
     "postbuild": "path-exists dev/postbuild.sh && dev/postbuild.sh || exit 0"
   },
   "keywords": [],
