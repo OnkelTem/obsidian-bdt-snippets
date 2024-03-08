@@ -1,0 +1,78 @@
+body {
+  $colors-dark: #64e764, #ff9464, #ffca64, #64ffff, #e7ff64, #ff64ff;
+  @for $i from 1 through 6 {
+    --bdt-colors-#{$i}-dark: color-mix(
+      in srgb,
+      #{nth($colors-dark, $i)},
+      gray 30%
+    );
+  }
+  $colors-light: #555555, #444444, #333333, #222222, #111111, #000000;
+  @for $i from 1 through 6 {
+    --bdt-colors-#{$i}-light: color-mix(
+      in srgb,
+      #{nth($colors-light, $i)},
+      gray 50%
+    );
+  }
+}
+
+body.bdt-colors-headers-dark.theme-dark {
+  @for $i from 1 through 6 {
+    --h#{$i}-color: var(--bdt-colors-#{$i}-dark);
+  }
+}
+
+body.bdt-colors-headers-light.theme-light {
+  @for $i from 1 through 6 {
+    --h#{$i}-color: var(--bdt-colors-#{$i}-light);
+  }
+}
+
+body.bdt-colors-lists-dark.theme-dark {
+  .markdown-source-view {
+    @for $i from 1 through 6 {
+      .cm-content > .cm-line.HyperMD-list-line-#{$i} {
+        --list-marker-color: var(--bdt-colors-#{$i}-dark);
+        color: var(--bdt-colors-#{$i}-dark);
+      }
+    }
+  }
+  .markdown-rendered {
+    @for $i from 1 through 6 {
+      $sel: "";
+      @for $i from 1 through 6 {
+        $sel: if($i == 1, "ul>li", selector-nest($sel, ">ul>li"));
+
+        #{$sel} {
+          color: var(--bdt-colors-#{$i}-dark);
+        }
+      }
+    }
+  }
+}
+
+body.bdt-colors-lists-light.theme-light {
+  .markdown-source-view {
+    @for $i from 1 through 6 {
+      .cm-content > .cm-line.HyperMD-list-line-#{$i} {
+        --list-marker-color: var(--bdt-colors-#{7-$i}-light);
+        color: var(--bdt-colors-#{7-$i}-light);
+      }
+    }
+  }
+  .markdown-rendered {
+    @for $i from 1 through 6 {
+      $sel: "";
+      @for $i from 1 through 6 {
+        $sel: if($i == 1, "ul>li", selector-nest($sel, ">ul>li"));
+
+        #{$sel} {
+          color: var(--bdt-colors-#{$i}-light);
+        }
+      }
+    }
+  }
+}
+
+@import "_colors.yaml";

@@ -1,0 +1,62 @@
+/**
+ * @file UI enhancements: tables, list bullets, code, active line
+ */
+
+/* Tables */
+
+body {
+  --bdt-other-table-width: 100%;
+}
+
+.markdown-rendered table {
+  width: 100%;
+}
+
+.markdown-source-view .cm-embed-block.cm-table-widget > .table-wrapper {
+  width: calc(var(--bdt-other-table-width) - var(--table-drag-handle-size));
+}
+
+/* Lists */
+
+body.bdt-other-list-bullets {
+  --list-bullet-size: 0.05em;
+  --list-bullet-transform: translateY(0px) scale(6, 2);
+  --list-bullet-radius: 0;
+
+  .markdown-source-view {
+    .list-bullet {
+      left: -0.2em;
+    }
+  }
+}
+
+/*  Active line */
+
+body.bdt-other-active-line {
+  .markdown-source-view.mod-cm6 {
+    .cm-line.cm-active {
+      &:before {
+        content: "↤";
+        color: color-mix(in srgb, var(--text-normal), black 50%);
+        width: 20px;
+        position: absolute;
+        right: -40px;
+        text-indent: 0;
+      }
+    }
+  }
+}
+
+/* Code blocks and inline code */
+
+body.bdt-other-code {
+  --code-radius: 0.4em;
+  &.theme-dark {
+    --code-background: color-mix(in srgb, var(--background-primary), white 8%);
+  }
+  &.theme-light {
+    --code-background: color-mix(in srgb, var(--background-primary), gray 8%);
+  }
+}
+
+@import "_other.yaml";

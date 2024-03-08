@@ -1,0 +1,264 @@
+{
+  "$id": "style-settings.schema.json",
+  "title": "Style Settings",
+  "description": "Obsidian Style Settings schema",
+  "type": "object",
+  "properties": {
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "collapsed": { "type": "boolean" },
+    "settings": { "type": "array", "items": { "$ref": "#/$defs/Block" } }
+  },
+  "required": ["id", "name", "settings"],
+  "additionalProperties": false,
+  "$defs": {
+    "Block": {
+      "allOf": [
+        { "$ref": "#/$defs/BlockCommon" },
+        { "$ref": "#/$defs/BlockTyped" }
+      ]
+    },
+    "BlockCommon": {
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" }
+      },
+      "patternProperties": {
+        "^title\\..+": { "type": "string" },
+        "^description\\..+": { "type": "string" }
+      }
+    },
+    "BlockTyped": {
+      "oneOf": [
+        { "$ref": "#/$defs/BlockTyped_Heading" },
+        { "$ref": "#/$defs/BlockTyped_InfoText" },
+        { "$ref": "#/$defs/BlockTyped_ClassToggle" },
+        { "$ref": "#/$defs/BlockTyped_ClassSelect" },
+        { "$ref": "#/$defs/BlockTyped_VariableText" },
+        { "$ref": "#/$defs/BlockTyped_VariableNumberSlider" },
+        { "$ref": "#/$defs/BlockTyped_VariableColor" }
+      ]
+    },
+    "BlockTyped_Heading": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "heading"
+        },
+        "id": { "type": "string" },
+        "level": { "type": "integer", "minimum": 1, "maximum": 6 },
+        "collapsed": { "type": "boolean" }
+      },
+      "required": ["type"]
+    },
+    "BlockTyped_InfoText": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "info-text"
+        },
+        "id": { "type": "string" },
+        "markdown": { "type": "boolean" }
+      },
+      "required": ["type"]
+    },
+    "BlockTyped_ClassToggle": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "class-toggle"
+        },
+        "id": { "type": "string" },
+        "default": { "type": "boolean" }
+      },
+      "required": ["id", "type"]
+    },
+    "BlockTyped_ClassSelect": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "class-select"
+        },
+        "id": { "type": "string" },
+        "allowEmpty": { "type": "boolean" },
+        "default": { "oneOf": [{ "type": "string" }, { "type": "number" }] },
+        "options": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": { "type": "string" },
+                  "value": {
+                    "oneOf": [{ "type": "string" }, { "type": "number" }]
+                  }
+                },
+                "required": ["label", "value"],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        }
+      },
+      "required": ["id", "type", "options"]
+    },
+    "BlockTyped_VariableText": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "variable-text"
+        },
+        "id": { "type": "string" },
+        "quotes": { "type": "boolean" },
+        "default": { "type": "string" }
+      },
+      "required": ["id", "type"]
+    },
+    "BlockTyped_VariableNumber": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "variable-number"
+        },
+        "id": { "type": "string" },
+        "default": { "type": "number" },
+        "format": { "type": "string" }
+      },
+      "required": ["id", "type"]
+    },
+    "BlockTyped_VariableNumberSlider": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "variable-number-slider"
+        },
+        "id": { "type": "string" },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number" },
+        "default": { "type": "number" },
+        "format": { "type": "string" }
+      },
+      "required": ["id", "type"]
+    },
+    "BlockTyped_VariableSelect": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "variable-select"
+        },
+        "id": { "type": "string" },
+        "default": { "oneOf": [{ "type": "string" }, { "type": "number" }] },
+        "options": {
+          "oneOf": [
+            {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": { "type": "string" },
+                  "value": {
+                    "oneOf": [{ "type": "string" }, { "type": "number" }]
+                  }
+                },
+                "required": ["label", "value"],
+                "additionalProperties": false
+              }
+            },
+            {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          ]
+        }
+      },
+      "required": ["id", "type", "options"]
+    },
+    "BlockTyped_ColorCommon": {
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "format": { "$ref": "#/$defs/ColorFormats" },
+        "opacity": { "type": "boolean" },
+        "alt-format": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": { "type": "string" },
+              "format": { "$ref": "#/$defs/ColorFormats" }
+            },
+            "required": ["id", "format"],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": ["id", "format"]
+    },
+    "BlockTyped_VariableColor": {
+      "allOf": [
+        { "$ref": "#/$defs/BlockTyped_ColorCommon" },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "variable-color"
+            },
+            "default": { "type": "string" }
+          },
+          "required": ["type", "default"]
+        }
+      ]
+    },
+    "BlockTyped_VariableThemedColor": {
+      "allOf": [
+        { "$ref": "#/$defs/BlockTyped_ColorCommon" },
+        {
+          "type": "object",
+          "properties": {
+            "type": {
+              "const": "variable-themed-color"
+            },
+            "default-light": { "type": "string" },
+            "default-dark": { "type": "string" }
+          },
+          "required": ["type", "default-light", "default-dark"]
+        }
+      ]
+    },
+    "BlockTyped_ColorGradient": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "color-gradient"
+        },
+        "id": { "type": "string" },
+        "from": { "oneOf": [{ "type": "integer" }, { "type": "string" }] },
+        "to": { "oneOf": [{ "type": "integer" }, { "type": "string" }] },
+        "step": { "type": "integer" },
+        "format": { "type": "string", "enum": ["hsl", "rgb", "hex"] },
+        "pad": { "type": "integer" }
+      },
+      "required": ["id", "type"]
+    },
+    "ColorFormats": {
+      "type": "string",
+      "enum": [
+        "hex",
+        "rgb",
+        "rgv-values",
+        "rgb-split",
+        "hsl",
+        "hsl-values",
+        "hsl-split",
+        "hsl-split-decimal"
+      ]
+    }
+  }
+}

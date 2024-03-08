@@ -1,0 +1,99 @@
+body {
+  /* Roboto Flex */
+
+  --bdt-font-family-roboto: "Roboto Flex";
+
+  /* Dark */
+
+  --bdt-font-weight-roboto-dark: 300;
+  --bdt-font-grade-roboto-dark: -150;
+  --bdt-letter-spacing-roboto-dark: 0.02em;
+
+  --bdt-font-h-weight-roboto-dark: 640;
+  --bdt-font-bold-weight-roboto-dark: 600;
+  --bdt-font-italic-weight-roboto-dark: 500;
+
+  /* Light */
+
+  --bdt-font-weight-roboto-light: 400;
+  --bdt-font-grade-roboto-light: 0;
+  --bdt-letter-spacing-roboto-light: 0;
+
+  --bdt-font-h-weight-roboto-light: 640;
+  --bdt-font-bold-weight-roboto-light: 600;
+  --bdt-font-italic-weight-roboto-light: 500;
+}
+
+body.bdt-roboto {
+  --font-text: var(--bdt-font-family-roboto);
+  --h-font: var(--bdt-font-family-roboto);
+
+  &.theme-dark {
+    --h-weight: var(--bdt-font-h-weight-roboto-dark);
+    --bold-weight: var(--bdt-font-bold-weight-roboto-dark);
+    --italic-weight: var(--bdt-font-italic-weight-roboto-dark);
+
+    .markdown-rendered,
+    .markdown-source-view {
+      font-weight: var(--bdt-font-weight-roboto-dark);
+      font-variation-settings: "GRAD" var(--bdt-font-grade-roboto-dark);
+      letter-spacing: var(--bdt-letter-spacing-roboto-dark);
+    }
+
+    .markdown-source-view {
+      @for $i from 1 through 6 {
+        .HyperMD-header-#{$i} {
+          letter-spacing: var(--bdt-letter-spacing-roboto-dark);
+        }
+      }
+    }
+
+    .markdown-rendered {
+      @for $i from 1 through 6 {
+        h#{$i} {
+          letter-spacing: var(--bdt-letter-spacing-roboto-dark);
+        }
+      }
+    }
+  }
+
+  &.theme-light {
+    --h-weight: var(--bdt-font-h-weight-roboto-light);
+    --bold-weight: var(--bdt-font-bold-weight-roboto-light);
+    --italic-weight: var(--bdt-font-italic-weight-roboto-light);
+
+    .markdown-rendered,
+    .markdown-source-view {
+      font-weight: var(--bdt-font-weight-roboto-light);
+      font-variation-settings: "GRAD" var(--bdt-font-grade-roboto-light);
+      letter-spacing: var(--bdt-letter-spacing-roboto-light);
+    }
+
+    .markdown-source-view {
+      @for $i from 1 through 6 {
+        .HyperMD-header-#{$i} {
+          letter-spacing: var(--bdt-letter-spacing-roboto-light);
+        }
+      }
+    }
+
+    .markdown-rendered {
+      @for $i from 1 through 6 {
+        h#{$i} {
+          letter-spacing: var(--bdt-letter-spacing-roboto-light);
+        }
+      }
+    }
+  }
+}
+
+//@for $i from 1 through 6 {
+//  h#{$i},
+//  .HyperMD-header-#{$i},
+//  .inline-title[data-level="#{$i}"],
+//  .HyperMD-list-line .cm-header-#{$i} {
+//    letter-spacing: var(--bdt-letter-spacing);
+//  }
+//}
+
+@import "_fonts.yaml";
