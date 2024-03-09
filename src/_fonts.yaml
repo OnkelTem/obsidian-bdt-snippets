@@ -11,11 +11,13 @@ settings:
     options:
       - label: Roboto Flex
         value: bdt-roboto
+
   - id: bdt-font-dark
     title: "Dark theme"
     type: heading
     collapsed: true
     level: 1
+
   - id: bdt-font-weight-roboto-dark
     title: "Font weight"
     type: variable-number-slider
@@ -23,6 +25,7 @@ settings:
     max: 1000
     step: 1
     default: 300
+
   - id: bdt-font-grade-roboto-dark
     title: "Font grade"
     type: variable-number-slider
@@ -30,6 +33,7 @@ settings:
     max: 150
     step: 1
     default: -150
+
   - id: bdt-letter-spacing-roboto-dark
     title: "Letter spacing (em)"
     type: variable-number-slider
@@ -38,11 +42,13 @@ settings:
     step: 0.001
     default: 0.02
     format: em
+
   - id: bdt-font-light
     title: "Light theme"
     type: heading
     collapsed: true
     level: 1
+
   - id: bdt-font-weight-roboto-light
     title: "Font weight"
     type: variable-number-slider
@@ -50,6 +56,7 @@ settings:
     max: 1000
     step: 1
     default: 400
+
   - id: bdt-font-grade-roboto-light
     title: "Font grade"
     type: variable-number-slider
@@ -57,6 +64,7 @@ settings:
     max: 150
     step: 1
     default: 0
+
   - id: bdt-letter-spacing-roboto-light
     title: "Letter spacing (em)"
     type: variable-number-slider
