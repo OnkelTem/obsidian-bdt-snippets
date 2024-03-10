@@ -17,18 +17,21 @@ body {
   }
 }
 
+body.theme-dark:not(.css-settings-manager),
 body.bdt-colors-headers-dark.theme-dark {
   @for $i from 1 through 6 {
     --h#{$i}-color: var(--bdt-colors-#{$i}-dark);
   }
 }
 
+body.theme-light:not(.css-settings-manager),
 body.bdt-colors-headers-light.theme-light {
   @for $i from 1 through 6 {
     --h#{$i}-color: var(--bdt-colors-#{$i}-light);
   }
 }
 
+body.theme-dark:not(.css-settings-manager),
 body.bdt-colors-lists-dark.theme-dark {
   .markdown-source-view {
     @for $i from 1 through 6 {
@@ -52,6 +55,7 @@ body.bdt-colors-lists-dark.theme-dark {
   }
 }
 
+body.theme-light:not(.css-settings-manager),
 body.bdt-colors-lists-light.theme-light {
   .markdown-source-view {
     @for $i from 1 through 6 {
