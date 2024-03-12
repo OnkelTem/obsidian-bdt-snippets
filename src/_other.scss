@@ -18,6 +18,7 @@ body {
 
 /* Lists */
 
+body:not(.css-settings-manager),
 body.bdt-other-list-bullets {
   --list-bullet-size: 0.05em;
   --list-bullet-transform: translateY(0px) scale(6, 2);
@@ -32,6 +33,7 @@ body.bdt-other-list-bullets {
 
 /*  Active line */
 
+body:not(.css-settings-manager),
 body.bdt-other-active-line {
   .markdown-source-view.mod-cm6 {
     .cm-line.cm-active {
@@ -49,6 +51,7 @@ body.bdt-other-active-line {
 
 /* Code blocks and inline code */
 
+body:not(.css-settings-manager),
 body.bdt-other-code {
   --code-radius: 0.4em;
   &.theme-dark {

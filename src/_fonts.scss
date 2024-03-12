@@ -24,6 +24,7 @@ body {
   --bdt-font-italic-weight-roboto-light: 500;
 }
 
+body:not(.css-settings-manager),
 body.bdt-roboto {
   --font-text: var(--bdt-font-family-roboto);
   --h-font: var(--bdt-font-family-roboto);
