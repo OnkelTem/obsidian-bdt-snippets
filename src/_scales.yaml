@@ -43,10 +43,10 @@ settings:
   - id: bdt-scales-list-font-size-scale-factor
     title: "List hierarchy negative font size scale factor"
     type: variable-number-slider
-    min: 0
+    min: 0.85
     max: 1
     step: 0.01
-    default: 0.90
+    default: 0.95
 
   - id: bdt-scales-list-spacing
     title: "List spacing (em)"

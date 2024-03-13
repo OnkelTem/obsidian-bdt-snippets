@@ -1,11 +1,10 @@
 body {
   --bdt-scales-p-spacing: 1rem;
-  --bdt-scales-list-spacing: 0.3rem;
+  --bdt-scales-list-spacing: 0.3em;
+  --bdt-scales-list-font-size-scale-factor: 0.95;
   --bdt-scales-line-height: 1.5;
   --bdt-scales-h-font-size-scale-factor: 1.1;
   --bdt-scales-h-line-height-scale-factor: 1;
-  --bdt-scales-list-font-size-scale-factor: 0.9;
-  --bdt-scales-list-line-height-scale-factor: 1;
 }
 
 body {
@@ -15,7 +14,8 @@ body {
 
   @for $i from 1 through 6 {
     --h#{$i}-size: calc(
-      1em * pow(var(--bdt-scales-h-font-size-scale-factor), #{7-$i})
+      var(--font-text-size) *
+        pow(var(--bdt-scales-h-font-size-scale-factor), #{7-$i})
     );
   }
 
@@ -29,17 +29,20 @@ body {
     // For levels 6+
     .cm-content > .cm-line.HyperMD-list-line {
       font-size: calc(
-        1em * pow(var(--bdt-scales-list-font-size-scale-factor), 6)
+        var(--font-text-size) *
+          pow(var(--bdt-scales-list-font-size-scale-factor), 6)
       );
       .cm-hmd-list-indent {
         font-size: var(--font-text-size);
+        line-height: 1px;
       }
     }
     // For levels 1-6
     @for $i from 6 through 1 {
       .cm-content > .cm-line.HyperMD-list-line-#{$i} {
         font-size: calc(
-          1em * pow(var(--bdt-scales-list-font-size-scale-factor), #{$i - 1})
+          var(--font-text-size) *
+            pow(var(--bdt-scales-list-font-size-scale-factor), #{$i - 1})
         );
       }
     }
@@ -48,7 +51,8 @@ body {
   .markdown-rendered {
     li {
       font-size: calc(
-        1rem * pow(var(--bdt-scales-list-font-size-scale-factor), 6)
+        var(--font-text-size) *
+          pow(var(--bdt-scales-list-font-size-scale-factor), 6)
       );
     }
     @for $i from 6 through 1 {
@@ -58,7 +62,8 @@ body {
 
         #{$sel} {
           font-size: calc(
-            1rem * pow(var(--bdt-scales-list-font-size-scale-factor), #{$i - 1})
+            var(--font-text-size) *
+              pow(var(--bdt-scales-list-font-size-scale-factor), #{$i - 1})
           );
         }
       }
